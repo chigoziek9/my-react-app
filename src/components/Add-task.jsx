@@ -77,7 +77,7 @@ const AddTask = () => {
   // };
 
   return (
-    <div className="flex flex-col items-center justify-center p-4 md:p-10">
+   <div className="flex flex-col items-center justify-center p-4 md:p-10">
   {/* Input container */}
   <div className="w-full max-w-2xl bg-green-100 p-4 md:p-6 rounded shadow-md">
     <div className="flex flex-col md:flex-row w-full gap-2">
@@ -98,54 +98,56 @@ const AddTask = () => {
   </div>
 
   {/* Tasks Added */}
-  <div className="bg-red-500 mt-6 w-full max-w-2xl p-4 md:p-6 space-y-2 rounded">
-    <h1 className="text-white text-xl font-bold mb-4">TASKS ADDED</h1>
+  <div className="bg-red-500 mt-6 w-full max-w-2xl p-4 md:p-6 rounded space-y-4">
+    <h1 className="text-white text-xl font-bold">TASKS ADDED</h1>
 
-    {taskList.map((item, index) => (
-      <div
-        key={index}
-        className="flex flex-col sm:flex-row justify-between items-start  bg-white p-4 rounded shadow space-y-2 sm:space-y-0"
-      >
-        <div className="flex items-center space-x-2">
-          <input
-            type="checkbox"
-            name={item}
-            checked={checkedStates[item] || false}
-            onChange={(e) => handleChange(e)}
-            id={`taskDone-${index}`}
-            className="w-5 h-5"
-          />
-          <label
-            htmlFor={`taskDone-${index}`}
-            className="text-lg break-words max-w-xs"
-            style={
-              checkedStates[item]
-                ? { color: "red", textDecoration: "line-through" }
-                : {}
-            }
-          >
-            {item}
-          </label>
-        </div>
-        <button
-          onClick={() => handleDeleteTask(index)}
-          className="bg-blue-500 text-white px-2 py-2 rounded hover:bg-blue-600 transition"
+    <div className="space-y-2">
+      {taskList.map((item, index) => (
+        <div
+          key={index}
+          className="flex flex-col sm:flex-row justify-between items-start sm:items-center bg-white p-4 rounded shadow w-full space-y-2 sm:space-y-0"
         >
-          Delete
-        </button>
-      </div>
-    ))}
+          <div className="flex items-center space-x-2 w-full">
+            <input
+              type="checkbox"
+              name={item}
+              checked={checkedStates[item] || false}
+              onChange={(e) => handleChange(e)}
+              id={`taskDone-${index}`}
+              className="w-5 h-5"
+            />
+            <label
+              htmlFor={`taskDone-${index}`}
+              className="text-lg break-words whitespace-normal w-full"
+              style={
+                checkedStates[item]
+                  ? { color: "red", textDecoration: "line-through" }
+                  : {}
+              }
+            >
+              {item}
+            </label>
+          </div>
+          <button
+            onClick={() => handleDeleteTask(index)}
+            className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition w-full sm:w-auto"
+          >
+            Delete
+          </button>
+        </div>
+      ))}
+    </div>
   </div>
 
   {/* Completed Tasks */}
-  <div className="bg-red-500 mt-6 w-full max-w-2xl p-4 md:p-6 space-y-2 rounded">
-    <h1 className="text-white text-xl font-bold mb-4">TASKS COMPLETED</h1>
+  <div className="bg-red-500 mt-6 w-full max-w-2xl p-4 md:p-6 rounded space-y-4">
+    <h1 className="text-white text-xl font-bold">TASKS COMPLETED</h1>
 
     <ul className="flex flex-col bg-white p-4 rounded shadow space-y-2">
       {completedList.map((item, index) => (
         <li
           key={index}
-          className="flex items-center space-x-2 break-words max-w-full"
+          className="w-full break-words text-lg whitespace-normal"
         >
           {item}
         </li>
@@ -153,6 +155,7 @@ const AddTask = () => {
     </ul>
   </div>
 </div>
+
 
   );
 };
