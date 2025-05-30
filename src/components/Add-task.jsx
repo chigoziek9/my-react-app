@@ -104,7 +104,7 @@ const AddTask = () => {
     {taskList.map((item, index) => (
       <div
         key={index}
-        className="flex flex-col sm:flex-row justify-between items-start sm:items-center bg-white p-4 rounded shadow space-y-2 sm:space-y-0"
+        className="flex flex-col sm:flex-row justify-between items-start  bg-white p-4 rounded shadow space-y-2 sm:space-y-0"
       >
         <div className="flex items-center space-x-2">
           <input
@@ -129,7 +129,7 @@ const AddTask = () => {
         </div>
         <button
           onClick={() => handleDeleteTask(index)}
-          className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition"
+          className="bg-blue-500 text-white px-2 py-2 rounded hover:bg-blue-600 transition"
         >
           Delete
         </button>
